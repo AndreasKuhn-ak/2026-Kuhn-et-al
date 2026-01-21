@@ -17,7 +17,7 @@ para_phys = parameters_physical(
     adsorption_rate         = 0.05,
     decay_rate              = 0.01,
     Diameter_colony         = 0.003,
-    agent_number            = 250000,
+    agent_number            = 25000,
     noise_strength          = 1.2,
     grid_strength           = 300,  
     grid_recover_rate       = 30.0,
@@ -88,7 +88,7 @@ end
 #save data
 
 s.serialize("test.jls",(Full_agent_list,grid_vec_sparse,grids))
-"""
+
 f = Figure(size = (1400,1800))
 display(f)
 println("start Visualisation")
@@ -102,5 +102,5 @@ ax1,fig_obs = ini_animation(Full_agent_list,para,grids,f,plot_para);
         animation_step!(ax1,Full_agent_list,grid_vec_sparse, grids,fig_obs, plot_para, para)
     end
 end
-"""
+
     
