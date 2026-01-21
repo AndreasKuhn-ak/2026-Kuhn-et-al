@@ -8,8 +8,10 @@ makedocs(;
     authors="AndreasKuhn-ak <andreaskuhn92@gmx.net> and contributors",
     sitename="TrypColonies.jl",
     format=Documenter.HTML(;
-        canonical="https://AndreasKuhn-ak.github.io/TrypColonies.jl",
-        edit_link="master",
+        canonical="https://AndreasKuhn-ak.github.io/2026-Kuhn-et-al
+
+",
+        edit_link="main",
         assets=String[],
     ),
     pages=[
@@ -18,6 +20,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/AndreasKuhn-ak/TrypColonies.jl",
-    devbranch="master",
+    repo="github.com/AndreasKuhn-ak/2026-Kuhn-et-al",
+    devbranch="main",
 )
