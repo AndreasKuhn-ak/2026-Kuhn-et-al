@@ -1,6 +1,6 @@
 ## TrypColonies.jl
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://AndreasKuhn-ak.github.io/TrypColonies.jl/stable/)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://AndreasKuhn-ak.github.io/TrypColonies.jl/dev/)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://AndreasKuhn-ak.github.io/2026-Kuhn-et-al)
+
 [![Build Status](https://github.com/AndreasKuhn-ak/TrypColonies.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/AndreasKuhn-ak/TrypColonies.jl/actions/workflows/CI.yml?query=branch%3Amaster)
 [![Coverage](https://codecov.io/gh/AndreasKuhn-ak/TrypColonies.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/AndreasKuhn-ak/TrypColonies.jl)
 
@@ -11,8 +11,7 @@ TrypColonies.jl is a Julia package for an agent-based simulation of Trypanosoma 
 
 For detailed documentation, please visit the following links:
 
-- [Stable Documentation](https://AndreasKuhn-ak.github.io/TrypColonies.jl/stable/)
-- [Development Documentation](https://AndreasKuhn-ak.github.io/TrypColonies.jl/dev/)
+- [Documentation](https://AndreasKuhn-ak.github.io/2026-Kuhn-et-al)
 
 ## How to Use
 
