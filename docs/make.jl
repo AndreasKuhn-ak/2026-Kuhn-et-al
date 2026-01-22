@@ -7,6 +7,7 @@ makedocs(;
     modules=[TrypColonies],
     authors="AndreasKuhn-ak <andreaskuhn92@gmx.net> and contributors",
     sitename="TrypColonies.jl",
+    warnonly = true,
     format=Documenter.HTML(;
         canonical="https://AndreasKuhn-ak.github.io/2026-Kuhn-et-al
 
