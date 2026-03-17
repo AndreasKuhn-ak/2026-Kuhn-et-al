@@ -1,5 +1,5 @@
 ## TrypColonies.jl
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://AndreasKuhn-ak.github.io/TrypColonies.jl/dev/)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://AndreasKuhn-ak.github.io/2026-Kuhn-et-al/dev/)
 [![Build Status](https://github.com/AndreasKuhn-ak/TrypColonies.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/AndreasKuhn-ak/TrypColonies.jl/actions/workflows/CI.yml?query=branch%3Amaster)
 
 
@@ -9,7 +9,7 @@ TrypColonies.jl is a Julia package for an angent based simulation of Trypanosoma
 
 For detailed documentation, please visit the following links:
 
-- [Documentation](https://AndreasKuhn-ak.github.io/TrypColonies.jl/dev/)
+- [Documentation](https://AndreasKuhn-ak.github.io/2026-Kuhn-et-al/dev/)
 
 ## How to Use
 

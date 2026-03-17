@@ -10,7 +10,7 @@ makedocs(;
     warnonly = true,
     format=Documenter.HTML(;
         canonical="https://AndreasKuhn-ak.github.io/2026-Kuhn-et-al",
-        edit_link="master",
+        edit_link="main",
         assets=String[],
     ),
     pages=[
@@ -23,5 +23,5 @@ makedocs(;
 
 deploydocs(;
     repo="github.com/AndreasKuhn-ak/2026-Kuhn-et-al",
-    devbranch="master",
+    devbranch="main",
 )
