@@ -1,0 +1,13 @@
+*.mp4
+*.webm
+*.mkv
+*.pdf
+*.jls
+/Manifest.toml
+#/docs/Manifest.toml
+/docs/build/
+/data
+.ipynb_checkpoints
+/vids
+
+
