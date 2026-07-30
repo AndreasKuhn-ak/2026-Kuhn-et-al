@@ -4,7 +4,7 @@
 
 
 
-TrypColonies.jl is a Julia package for an angent based simulation of Trypanosoma colonies. 
+TrypColonies.jl is a Julia package for an angent based simulation of Trypanosoma colonies which was used in our publication "An agent-based model of Trypanosoma brucei social motility to explore determinants of colony pattern formation" in PLOS Computation Biology.  
 ### Documentation
 
 For detailed documentation, please visit the following links:
@@ -47,7 +47,8 @@ This sets up the environment with all necessary dependencies.
       Pkg.add("IJulia")
       Pkg.add("Revise")
    ```
-
+### Archived 
+This repository is archived at Zenodo (https://doi.org/10.5281/zenodo.21705812), together with intermediate data required to reproduce the metrics plots and the simulation configuration files required to rerun the parameter sweeps to fully reproduce our results and to obtain the raw data. 
 
 
 ### Contributing
