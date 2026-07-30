@@ -16,7 +16,7 @@ growth_rate_inc = growth_rate_sec - growth_rate
     "iterations"            => 5,
     "parameter_steps"       => 1,
     "sweep_parameter"       => "growth_rate",
-    "parameter_increment"   => growth_rate_inc,
+    "parameter_increment"   => -1.1766569825377715e-5,
     "sampling_interval"     => 1200, # in seconds   
 
     "N"                     => (1000,1000),
@@ -55,7 +55,7 @@ time_sec = time_ms[end-8:end-5]
 data_path = find_data_path(local_data = false)
 
 
-name = "std_dev_test3_default_parameters"
+name = "test_std_grid_deviation"
 
 #create folder, if it does not exist already
 full_data_path = data_path*name*"_"*string(settings["agent_number"])*"_time_seed_"* time_sec 
@@ -75,9 +75,6 @@ CSV.write(full_data_path*"\\settings.csv",settings)
 
 
 # load database DataFrame
-
-
-#df = DataFrame()
 
 para_dict_list = make_para_dict_list(settings)
 
@@ -100,20 +97,26 @@ settings2["run_time"] = t
 settings2["storage"] = foldersize(full_data_path)
 settings2["location"] = data_path
 settings2["name"] = name
+settings2["doubling_time"] = 1 ./log2.(1 .+settings2["growth_rate"]) ./3600
+settings2["sweep_para_start_value"] = settings2[settings2["sweep_parameter"]]
+
+
 
 try 
-    df = s.deserialize("data_base/df.jls")   
-catch
-    df = DataFrame()
+    global df2 = s.deserialize("data_base/df.jls")   
+catch 
+    println("no existing database found, creating new one")
+    global df2 = DataFrame()
 end
 
-println(last(df))
+println(last(df2))
 
-push!(df,settings2, promote = true, cols = :union )
-println(last(df))
-s.serialize("data_base/df.jls",df)
-CSV.write("data_base/df.csv",df)
+push!(df2,settings2, promote = true, cols = :union )
+println(last(df2))
 
-println(last(df))
+s.serialize("data_base/df.jls", df2)
+CSV.write("data_base/df.csv", df2)
+
+println(last(df2))
 println("finished")
 

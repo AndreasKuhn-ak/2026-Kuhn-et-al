@@ -21,24 +21,38 @@ path = find_data_path(data_paths, local=true)
 ```
 This function is useful for applications that need to flexibly switch between local and remote data sources.
 """
-function find_data_path(;local_data = false)
+function find_data_path(;local_data = false, custom_path = nothing)
     data_storage_locations = Dict{String,String}(
     "external_data" => "C:\\Users\\ank10ki\\Desktop\\simulation_data_julia\\",
     "external_data_desk" => "C:\\Users\\Andreas\\Desktop\\simulation_data_julia\\",
     "knecht_data" => "C:\\Users\\Andreas\\Desktop\\simulation_data_julia_knecht\\")
+    
+    if custom_path != nothing
+        if isdir(custom_path)
+            return custom_path
+        elseif !isdir(custom_path)
+            throw(ArgumentError("Custom path provided does not exist: $custom_path"))
+        end
+    else 
+        if local_data
+            if isdir("data")
+                return pwd()*"\\data\\"
+            elseif !isdir("data")
+                throw(ArgumentError("No local data directory found"))
+            end
+        else 
+            for path in values(data_storage_locations)
+                if isdir(path)
+                    return path 
+                end
+            end
+        end
+        
 
-    if local_data
-        if isdir("data")
-            return pwd()*"\\data\\"
-        else
-            throw(ArgumentError("No local data directory found"))
-        end
+
     end
-    for path in values(data_storage_locations)
-        if isdir(path)
-            return path 
-        end
-    end
+        
+
 end
 
 """

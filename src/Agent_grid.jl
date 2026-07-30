@@ -225,7 +225,8 @@ function create_grids(Parameters::parameters; create_scal_grid = true)
     elseif Parameters.geometry == "circle"
 
         grid_strength = Parameters.pa_ph.grid_strength
-        grid_deviation = round(Int, 0.2*grid_strength)
+        #grid_deviation = round(Int, 0.2*grid_strength)
+        grid_deviation = 0
         
         grid -= rand((grid_strength-grid_deviation):(grid_strength+grid_deviation),size[1],size[2])
         #grid .= -Parameters.pa_ph.grid_strength

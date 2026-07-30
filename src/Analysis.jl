@@ -26,6 +26,15 @@ function create_data_path_vector(data_path)
 end
 
 
+function create_metric_path_vector(data_path)
+    typeof(data_path) == String ? path = [data_path] : path = data_path
+    path = path .* "\\analysis\\metrics"
+    data_paths =  readdir.(path)
+    full_metric_path = [path .*"\\".*data_paths[x] for x in 1:length(data_paths)]
+    return full_metric_path
+end
+
+
 """
     create_para_struct_vec(data_used) -> Vector{Vector{parameters}}
 
@@ -668,4 +677,24 @@ function og_size(agent_list::Vector{agent},grids::Tuple{AbstractArray,AbstractAr
 
     sum(b_w_im(start_grid))
     return sum(b_w_im(start_grid))
+end
+
+
+
+function calculate_metrics(datu, Og_size, length_data, data_used)
+    metric_dict = Dict{Symbol, Any}()
+    metric_dict[:adsorb] = [adsorbed_material(datu[j]...) for j in 1:length_data]
+    metric_dict[:cell_gain] = ([cell_gain(datu[j]...) for j in 1:length_data].+1)*data_used.agent_number[1]
+    metric_dict[:area_gain] = [area_gain(datu[j]...) for j in 1:length_data]
+    metric_dict[:angular_metric] = [angular_metric(datu[j]...) for j in 1:length_data]
+    metric_dict[:pair_metric] = [pair_cor_metric(datu[j]... ; max_samples = 10000000) for j in 1:length_data]
+    metric_dict[:radial_density] = [radial_density_c(datu[j]...) for j in 1:length_data]
+
+    metric_dict[:cv] = Float64.([(std(x)/mean(x))>0 ? (mean(x) != 0 ? std(x)/mean(x) : 0) : 0 for x in metric_dict[:angular_metric] ])
+    metric_dict[:W] = [roughness(x,Og_size) for x in metric_dict[:angular_metric]]
+    metric_dict[:fk] = [fourier_ik(x,Og_size) for x in metric_dict[:angular_metric]]
+    metric_dict[:max_p1] = Float64.([(maximum(x)-mean(x))/mean(x) > 0 ? (mean(x) != 0 ? (maximum(x)-mean(x))/mean(x) : 0) : 0 for x in metric_dict[:pair_metric] ])
+
+
+    return metric_dict
 end

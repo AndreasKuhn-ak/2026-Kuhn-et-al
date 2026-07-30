@@ -64,7 +64,8 @@ export  @h,
         fourier_ik,
         roughness,
         scale_color_map,
-        index
+        index,
+        create_metric_path_vector
 
 
 
